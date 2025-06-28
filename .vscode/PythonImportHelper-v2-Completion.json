@@ -1,0 +1,223 @@
+[
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "analyse_risk",
+        "importPath": "analysis",
+        "description": "analysis",
+        "isExtraImport": true,
+        "detail": "analysis",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_risk_reward",
+        "importPath": "analysis",
+        "description": "analysis",
+        "isExtraImport": true,
+        "detail": "analysis",
+        "documentation": {}
+    },
+    {
+        "label": "analyse_risk",
+        "kind": 2,
+        "importPath": "analysis",
+        "description": "analysis",
+        "peekOfCode": "def analyse_risk(stock_data: Dict[str, Any], target_selling_price: float, stop_loss: float, user_volume: float) -> Dict[str, Any]:\n    \"\"\"\n    Analyse risk for a given stock based on target selling price, stop loss, and user's buying volume.\n    Args:\n        stock_data: Stock data from Alpha Vantage API\n        target_selling_price: Target price to sell the stock\n        stop_loss: Stop loss price to limit losses\n        user_volume: Number of shares the user is buying (affects liquidity risk)\n    Returns:\n        Dictionary containing risk analysis results and plot",
+        "detail": "analysis",
+        "documentation": {}
+    },
+    {
+        "label": "get_rating",
+        "kind": 2,
+        "importPath": "analysis",
+        "description": "analysis",
+        "peekOfCode": "def get_rating(sharpe: float, rr_ratio: float) -> str:\n    \"\"\"Determine overall trade quality\"\"\"\n    if sharpe > 1.5 and rr_ratio > 2.0:\n        return \"⭐️⭐️⭐️⭐️⭐️ EXCELLENT\"\n    elif sharpe > 1.0 and rr_ratio > 1.5:\n        return \"⭐️⭐️⭐️⭐️ GOOD\"\n    elif sharpe > 0.5 and rr_ratio > 1.0:\n        return \"⭐️⭐️⭐️ FAIR\"\n    else:\n        return \"⭐️⭐️ WEAK\"",
+        "detail": "analysis",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_success_probability",
+        "kind": 2,
+        "importPath": "analysis",
+        "description": "analysis",
+        "peekOfCode": "def estimate_success_probability(\n    stock_data: Dict[str, Any],\n    entry_price: float,\n    target_price: float,\n    stop_loss: float,\n    n_simulations: int = 1000,\n    lookback_days: int = 60\n) -> float:\n    \"\"\"\n    Estimate probability of hitting target before stop loss",
+        "detail": "analysis",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_risk_reward",
+        "kind": 2,
+        "importPath": "analysis",
+        "description": "analysis",
+        "peekOfCode": "def calculate_risk_reward(\n    stock_data: Dict[str, Any],\n    target_price: float,\n    stop_loss: float,\n    user_volume: float,\n    holding_period_days: int = 30,\n    risk_free_rate: float = 0.04  # Fallback: 4%\n) -> Dict[str, Any]:\n    \"\"\"\n    Comprehensive risk/reward analysis combining both metrics.",
+        "detail": "analysis",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = FastAPI(\n    title=\"Stock Market Analyzer\",\n    description=\"A FastAPI server for analyzing stock market data using Alpha Vantage API\",\n    version=\"1.0.0\"\n)\n# Add CORS middleware\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],  # Configure this properly for production\n    allow_credentials=True,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ALPHA_VANTAGE_API_KEY",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "ALPHA_VANTAGE_API_KEY = os.getenv(\"ALPHA_VANTAGE_API_KEY\")\nALPHA_VANTAGE_BASE_URL = \"https://www.alphavantage.co/query\"\n@app.get(\"/\")\nasync def root():\n    \"\"\"Root endpoint with basic information\"\"\"\n    return {\n        \"message\": \"Stock Market Analyzer API\",\n        \"version\": \"1.0.0\",\n        \"status\": \"running\"\n    }",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ALPHA_VANTAGE_BASE_URL",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "ALPHA_VANTAGE_BASE_URL = \"https://www.alphavantage.co/query\"\n@app.get(\"/\")\nasync def root():\n    \"\"\"Root endpoint with basic information\"\"\"\n    return {\n        \"message\": \"Stock Market Analyzer API\",\n        \"version\": \"1.0.0\",\n        \"status\": \"running\"\n    }\n@app.get(\"/health\")",
+        "detail": "main",
+        "documentation": {}
+    }
+]
