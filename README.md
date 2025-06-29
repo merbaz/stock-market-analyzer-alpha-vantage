@@ -1,6 +1,6 @@
 # Stock Market Analyzer
 
-A FastAPI server for analyzing stock market data using the Alpha Vantage API.
+A FastAPI server for analyzing stock market data using the Alpha Vantage API with comprehensive risk and reward analysis.
 
 ## Setup
 
@@ -52,6 +52,26 @@ The server will start on `http://localhost:8000`
   - Parameters:
     - `keywords` (required): Search keywords
 
+### Risk Analysis
+
+- **GET** `/plot/risk/{symbol}` - Generate risk analysis with radar chart visualization
+  - Parameters:
+    - `symbol` (required): Stock symbol (e.g., AAPL, MSFT)
+    - `target_selling_price` (required): Target price to sell the stock
+    - `stop_loss` (required): Stop loss price to limit losses
+    - `user_volume` (required): Number of shares the user is buying
+
+### Comprehensive Risk/Reward Analysis
+
+- **GET** `/plot/risk-reward/{symbol}` - Generate comprehensive risk/reward analysis with ratings
+  - Parameters:
+    - `symbol` (required): Stock symbol (e.g., AAPL, MSFT)
+    - `target_price` (required): Target selling price
+    - `stop_loss` (required): Stop loss price
+    - `user_volume` (required): Number of shares the user is buying
+    - `holding_period_days` (optional): Investment horizon in days (default: 30)
+    - `risk_free_rate` (optional): Annual risk-free rate (default: 0.04 = 4%)
+
 ## API Documentation
 
 Once the server is running, you can access:
@@ -70,7 +90,31 @@ curl "http://localhost:8000/search/apple"
 
 # Check health status
 curl "http://localhost:8000/health"
+
+# Risk analysis for Apple
+curl "http://localhost:8000/plot/risk/AAPL?target_selling_price=205&user_volume=50&stop_loss=198"
+
+# Comprehensive risk/reward analysis for Apple
+curl "http://localhost:8000/plot/risk-reward/AAPL?target_price=205&stop_loss=198&user_volume=50&holding_period_days=30&risk_free_rate=0.04"
 ```
+
+## Features
+
+### Risk Analysis
+
+- **Volatility Risk**: Annualized volatility calculation
+- **Drawdown Risk**: Potential loss from current price to stop loss
+- **Liquidity Risk**: Volume analysis and user volume impact
+- **Bearish Pressure**: RSI-based bearish frequency analysis
+- **Visual Radar Chart**: Interactive risk profile visualization
+
+### Risk/Reward Analysis
+
+- **Sharpe Ratio**: Risk-adjusted return calculation
+- **Risk/Reward Ratio**: Probability-adjusted risk/reward metrics
+- **Success Probability**: Monte Carlo simulation for trade success
+- **Star Rating System**: Overall trade quality assessment
+- **Comprehensive HTML Reports**: Detailed analysis with visualizations
 
 ## Environment Variables
 
@@ -78,8 +122,20 @@ curl "http://localhost:8000/health"
 | ----------------------- | -------------------------- | -------- |
 | `ALPHA_VANTAGE_API_KEY` | Your Alpha Vantage API key | Yes      |
 
+## Dependencies
+
+- **FastAPI**: Web framework
+- **Uvicorn**: ASGI server
+- **Pandas**: Data manipulation and analysis
+- **Matplotlib**: Chart generation
+- **NumPy**: Numerical computations
+- **Requests**: HTTP client
+- **Python-dotenv**: Environment variable management
+
 ## Notes
 
 - The free Alpha Vantage API has rate limits (5 API calls per minute, 500 per day)
 - For production use, consider upgrading to a paid plan
 - Configure CORS settings properly for production deployments
+- Risk analysis includes Monte Carlo simulations for probability calculations
+- All endpoints return HTML responses for better visualization in tools like Postman
